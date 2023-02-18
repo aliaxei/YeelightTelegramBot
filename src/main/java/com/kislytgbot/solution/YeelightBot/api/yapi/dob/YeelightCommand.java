@@ -1,4 +1,4 @@
-package com.kislytgbot.solution.YeelightBot.api.yapi.command;
+package com.kislytgbot.solution.YeelightBot.api.yapi.dob;
 
 import com.google.gson.annotations.Expose;
 import com.kislytgbot.solution.YeelightBot.api.yapi.utils.YeelightUtils;
@@ -14,18 +14,22 @@ public class YeelightCommand {
     /**
      * Command ID
      */
-    @Expose private int id;
+    @Expose
+    private int id;
     /**
      * Command method
      */
-    @Expose private String method;
+    @Expose
+    private String method;
     /**
      * Command parameters
      */
-    @Expose private Object[] params;
+    @Expose
+    private Object[] params;
 
     /**
      * Generate ID for a command
+     *
      * @return An unique ID for a command
      */
     private static int generateId() {
@@ -34,6 +38,7 @@ public class YeelightCommand {
 
     /**
      * Command constructor (ID is auto-attributed)
+     *
      * @param method Associated method
      * @param params Associated parameters
      */
@@ -45,6 +50,7 @@ public class YeelightCommand {
 
     /**
      * Getter for ID
+     *
      * @return Command ID
      */
     public int getId() {
@@ -53,6 +59,7 @@ public class YeelightCommand {
 
     /**
      * Convert this command to JSON string
+     *
      * @return JSON string representation of this command
      */
     public String toJson() {

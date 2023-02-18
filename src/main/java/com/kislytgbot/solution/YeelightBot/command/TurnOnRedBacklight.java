@@ -16,6 +16,6 @@ public class TurnOnRedBacklight extends BotCommand {
 
     @Override
     protected void performAction(Update update) throws YeelightResultErrorException, YeelightSocketException {
-
+        deviceService.setRedBacklight();
     }
 }

@@ -43,7 +43,8 @@ public class YeelightSocketHolder {
 
     /**
      * Constructor for socket holder
-     * @param ip Socket holder IP
+     *
+     * @param ip   Socket holder IP
      * @param port Socket holder port
      * @throws YeelightSocketException when socket error occurs
      */
@@ -53,6 +54,11 @@ public class YeelightSocketHolder {
         this.initSocketAndStreams();
     }
 
+    /**
+     * Drop connection with socket
+     *
+     * @throws YeelightSocketException when socket error occurs
+     */
     public void dropSocketConnection() throws YeelightSocketException {
         try {
             this.socket.close();
@@ -63,10 +69,11 @@ public class YeelightSocketHolder {
 
     /**
      * Create socket and associated streams (reader + writer)
+     *
      * @throws YeelightSocketException when socket error occurs
      */
     @RetryOnFailure(attempts = 5, delay = 5)
-    private void initSocketAndStreams() throws YeelightSocketException {
+    private void initSocketAndStreams() {
         try {
             InetSocketAddress inetSocketAddress = new InetSocketAddress(ip, port);
             this.socket = new Socket();
@@ -82,6 +89,7 @@ public class YeelightSocketHolder {
 
     /**
      * Send datas on the socket
+     *
      * @param datas Datas to send
      * @throws YeelightSocketException when socket error occurs
      */
@@ -97,6 +105,7 @@ public class YeelightSocketHolder {
 
     /**
      * Read line on the socket (terminated with \r, \n or \r\n)
+     *
      * @return The line read
      * @throws YeelightSocketException when socket error occurs
      */
@@ -106,7 +115,8 @@ public class YeelightSocketHolder {
             Logger.debug("{} received from {}:{}", datas, this.ip, this.port);
             return datas;
         } catch (Exception e) {
-            throw new YeelightSocketException(e);
+            //throw new YeelightSocketException(e);
         }
+        return "";
     }
 }

@@ -16,6 +16,6 @@ public class LightOn extends BotCommand {
 
     @Override
     protected void performAction(Update update) throws YeelightResultErrorException, YeelightSocketException {
-        device.setPower(true);
+        deviceService.setPower(true);
     }
 }

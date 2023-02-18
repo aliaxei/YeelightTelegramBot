@@ -23,10 +23,10 @@ import java.util.Set;
 @Component
 public class BotService extends TelegramLongPollingBot {
 
-    final BotConfig config;
-
     @Autowired
     private ApplicationContext context;
+    final BotConfig config;
+
 
     public BotService(BotConfig config) {
         this.config = config;
@@ -75,7 +75,7 @@ public class BotService extends TelegramLongPollingBot {
                 .findFirst()
                 .orElse(null);
 
-        return (BotCommand) context.getBean(decapitalize(actionForExecute.getSimpleName()));
+        return (BotCommand) context.getBean(actionForExecute);
     }
 
     private void sendMessage(long chatId, String answer) {
@@ -86,7 +86,7 @@ public class BotService extends TelegramLongPollingBot {
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
-
+            // todo: handle telegramApiException
         }
 
     }
@@ -96,9 +96,9 @@ public class BotService extends TelegramLongPollingBot {
             return string;
         }
 
-        char c[] = string.toCharArray();
-        c[0] = Character.toLowerCase(c[0]);
+        char[] charArray = string.toCharArray();
+        charArray[0] = Character.toLowerCase(charArray[0]);
 
-        return new String(c);
+        return new String(charArray);
     }
 }

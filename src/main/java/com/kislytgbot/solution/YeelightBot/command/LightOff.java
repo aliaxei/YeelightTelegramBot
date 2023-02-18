@@ -17,6 +17,6 @@ public class LightOff extends BotCommand {
 
     @Override
     protected void performAction(Update update) throws YeelightResultErrorException, YeelightSocketException {
-        device.setPower(false);
+        deviceService.turnOffLight();
     }
 }

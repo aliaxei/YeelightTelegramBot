@@ -17,9 +17,10 @@ public class GetCurrentDeviceInstance extends BotCommand {
 
     @Override
     public String execute(Update update) throws YeelightResultErrorException, YeelightSocketException {
-        return device.getProperties().toString();
+        return deviceService.getProperties().toString();
     }
 
     @Override
-    protected void performAction(Update update) throws YeelightResultErrorException, YeelightSocketException {}
+    protected void performAction(Update update) {
+    }
 }

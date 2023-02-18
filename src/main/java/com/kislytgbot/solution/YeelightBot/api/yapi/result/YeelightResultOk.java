@@ -3,6 +3,7 @@ package com.kislytgbot.solution.YeelightBot.api.yapi.result;
 import com.google.gson.annotations.Expose;
 import com.kislytgbot.solution.YeelightBot.api.yapi.utils.YeelightUtils;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -12,20 +13,23 @@ public class YeelightResultOk {
     /**
      * Command ID that produced the result
      */
-    @Expose private int id;
+    @Expose
+    private int id;
     /**
      * Result array returned by command
      */
-    @Expose private String[] result;
+    @Expose
+    private List<String> result;
 
     /**
      * @see YeelightResultOk#from(String)
      */
-    private YeelightResultOk(){
+    private YeelightResultOk() {
     }
 
     /**
      * Generate a {@link YeelightResultOk} from datas if datas is a response
+     *
      * @param datas JSON representation of valid/ok response
      * @return YeelightResultOk if datas is a valid JSON representation of valid/ok response
      */
@@ -35,6 +39,7 @@ public class YeelightResultOk {
 
     /**
      * Validate an okResult
+     *
      * @param okResult OkResult to validate
      * @return True if okResult contains a non-null result attribute
      */
@@ -44,6 +49,7 @@ public class YeelightResultOk {
 
     /**
      * Getter for command ID
+     *
      * @return Command ID that produced the result
      */
     public int getId() {
@@ -52,9 +58,10 @@ public class YeelightResultOk {
 
     /**
      * Getter for result array
+     *
      * @return Result array content for command response
      */
-    public String[] getResult() {
+    public List<String> getResult() {
         return this.result;
     }
 }
