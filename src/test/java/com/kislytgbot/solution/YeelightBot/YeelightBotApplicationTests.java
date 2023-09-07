@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class YeelightBotApplicationTests {
 
+	//TODO
 	@Test
 	void contextLoads() {
 	}
